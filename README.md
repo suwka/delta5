@@ -65,3 +65,48 @@ Dokument ten stanowi kompleksową specyfikację wymagań dla platformy Delta5. R
     * **Plan walidacji:** Przeprowadzenie testów A/B na etapie prototypu oraz zebranie ankiet satysfakcji po pierwszym tygodniu użytkowania wersji Beta.
 
 ---
+
+## 3. Wymagania Funkcjonalne
+
+### 3.1. Priorytetyzacja (Model Fibonacci)
+Priorytet wyliczony wg wzoru: Priorytet = (Korzyść + Kara) / (Koszt + Ryzyko)
+
+
+| Funkcjonalność | Korzyść | Kara | Koszt | Ryzyko | Priorytet |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| Zarządzanie kursem | 13 | 13 | 5 | 3 | **3.25** |
+| Przesyłanie zadań | 21 | 13 | 3 | 2 | **6.80** |
+| Automatyczne testy | 13 | 5 | 8 | 5 | **1.38** |
+| Czat Real-time | 8 | 3 | 13 | 8 | **0.52** |
+
+### 3.2. Szczegółowe Wymagania
+
+#### WF-TEST-01: Automatyczne sprawdzanie testów
+* **Opis:** System umożliwia tworzenie testów jednokrotnego wyboru, które są automatycznie oceniane przez algorytm natychmiast po ich przesłaniu.
+* **User Story:** Jako prowadzący, chcę, aby system automatycznie sprawdzał testy teoretyczne, abym mógł zaoszczędzić czas i szybciej udostępnić wyniki studentom.
+* **Cel Biznesowy:** Skrócenie czasu oczekiwania na ocenę (feedback) oraz odciążenie prowadzących z powtarzalnych czynności administracyjnych.
+* **Warunki Wstępne:** Użytkownik jest zalogowany jako student, a test jest aktywny w harmonogramie kursu.
+* **Warunki Końcowe:** Wynik testu oraz odpowiedzi studenta zostają zapisane w bazie danych PostgreSQL, a dziennik ocen zostaje zaktualizowany.
+
+**Kryteria Akceptacji:**
+
+* **Scenariusz Główny (Happy Path):**
+    * **Given:** Student otworzył aktywny quiz w przeglądarce.
+    * **When:** Student zaznacza odpowiedzi na wszystkie pytania i klika przycisk "Wyślij".
+    * **Then:** System porównuje odpowiedzi z kluczem w bazie danych.
+    * **And:** System wyświetla studentowi wynik punktowy (np. 15/20).
+    * **And:** Ocena jest automatycznie zapisywana w module Oceny.
+
+* **Scenariusz Alternatywny (Błędne odpowiedzi):**
+    * **Given:** Student wypełnił test, ale zaznaczył większość błędnych odpowiedzi.
+    * **When:** Student zatwierdza formularz.
+    * **Then:** System pokazuje niski wynik punktowy.
+    * **And:** System NIE wyświetla poprawnych odpowiedzi (aby zapobiec przekazywaniu ich innym studentom), jeśli prowadzący włączył opcję "Ukryj klucz".
+
+* **Scenariusz Wyjątkowy (Zerwanie połączenia):**
+    * **Given:** Student jest w trakcie rozwiązywania testu.
+    * **When:** Użytkownik traci połączenie z internetem w momencie kliknięcia "Wyślij".
+    * **Then:** System wyświetla komunikat o błędzie sieci ("Brak połączenia").
+    * **And:** System umożliwia ponowną próbę wysłania odpowiedzi po odzyskaniu połączenia, bez utraty zaznaczonych wcześniej opcji.
+
+---
