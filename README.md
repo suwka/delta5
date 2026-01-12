@@ -31,3 +31,37 @@ Metryka mierząca czas, jaki upływa od rozpoczęcia ładowania strony do moment
 
 ### 1.4. Przegląd dokumentu
 Dokument ten stanowi kompleksową specyfikację wymagań dla platformy Delta5. Rozdział 2 przedstawia ogólną charakterystykę systemu, wizję produktu oraz założenia projektowe. W Rozdziale 3 zdefiniowano szczegółowe wymagania funkcjonalne wraz z historyjkami użytkownika i kryteriami akceptacji. Rozdział 4 określa wymagania niefunkcjonalne (atrybuty jakościowe) oraz kryteria ich weryfikacji, a Rozdział 5 zawiera analizę wymagań.
+
+---
+
+## 2. Opis Ogólny
+
+### 2.1. Główne Funkcje Produktu
+1. **Zarządzanie Kursem:** Tworzenie kursów, przydzielanie prowadzących i harmonogramy.
+2. **Komunikacja:** Czaty grupowe i indywidualne, powiadomienia w czasie rzeczywistym.
+3. **Moduł Zadań i Ocen:** Przesyłanie plików (do 200MB) oraz wizualizacja statystyk.
+4. **Automatyczne Testy:** Moduł tworzenia i samoczynnego sprawdzania quizów teoretycznych.
+
+### 2.2. Klasy Użytkowników i Persony
+* **Student:** Skupiony na terminowości i intuicyjnej obsłudze mobilnej/desktopowej.
+* **Prowadzący:** Kluczowy użytkownik zarządzający treścią i ocenami.
+* **Persona (Dodatek B):** Marek (student potrzebujący szybkości) oraz Anna (wykładowczyni ceniąca automatyzację).
+
+### 2.3. Ograniczenia Projektowe
+* **Techniczne:** Wybór Django, React i PostgreSQL determinuje architekturę API-first.
+* **Organizacyjne:** Realizacja MVP w 3 miesiące przez dwóch studentów.
+* **Budżetowe:** Ograniczenie do bezpłatnych subskrypcji oraz planów studenckich narzędzi i modeli AI.
+
+### 2.4. Założenia Projektowe
+
+1. **Techniczne: Darmowy plan hostingu obsłuży obciążenie pilotażowe.**
+    * **Treść:** Zakładamy, że darmowe plany (np. Render/Heroku dla Django i PostgreSQL) wystarczą do obsłużenia ruchu generowanego przez jedną grupę dziekańską.
+    * **Ryzyko:** Serwer może przestać odpowiadać przy nagłym skoku aktywności (np. wszyscy studenci logują się na kolokwium), co zablokuje dostęp do materiałów i zniechęci użytkowników.
+    * **Plan walidacji:** Przeprowadzenie testów obciążeniowych symulujących 50 jednoczesnych użytkowników przed oficjalnym startem semestru.
+
+2. **Użytkowe: Czarny motyw interfejsu (Dark Mode) jest preferowany przez grupę docelową.**
+    * **Treść:** Zakładamy, że domyślny ciemny motyw zwiększy komfort pracy studentów, którzy często uczą się w godzinach wieczornych.
+    * **Ryzyko:** Część użytkowników może mieć trudności z czytelnością przy słabym kontraście, co wpłynie negatywnie na dostępność (Accessibility) i satysfakcję.
+    * **Plan walidacji:** Przeprowadzenie testów A/B na etapie prototypu oraz zebranie ankiet satysfakcji po pierwszym tygodniu użytkowania wersji Beta.
+
+---
