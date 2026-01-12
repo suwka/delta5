@@ -110,3 +110,30 @@ Priorytet wyliczony wg wzoru: Priorytet = (Korzyść + Kara) / (Koszt + Ryzyko)
     * **And:** System umożliwia ponowną próbę wysłania odpowiedzi po odzyskaniu połączenia, bez utraty zaznaczonych wcześniej opcji.
 
 ---
+## 4. Atrybuty Jakościowe
+
+### 4.1. Wybór i Priorytetyzacja
+1. **Użyteczność (Prio 1):** Intuicyjna obsługa zachęca do regularnego korzystania.
+2. **Wydajność (Prio 2):** LCP (Largest Contentful Paint - metryka wydajności określająca czas załadowania największego widocznego elementu) poniżej 2.5s, aby nie zniechęcać użytkowników.
+3. **Bezpieczeństwo (Prio 3):** Ochrona danych osobowych (RODO) i ocen.
+
+### 4.2. Scenariusz Jakościowy (Wydajność)
+* **Źródło bodźca:** Użytkownik (Student).
+* **Bodziec:** Przesłanie projektu (paczka .zip 200MB).
+* **Środowisko:** Szczytowe obciążenie na koniec semestru.
+* **Miara reakcji:** Operacja zakończona sukcesem w mniej niż 4 krokach od zalogowania.
+
+### 4.3. Analiza Kompromisów
+* **Kompromis:** Rezygnacja z mikroserwisów na rzecz monolitu.
+* **Wpływ:** Poprawa **Wydajności** i szybkości wdrożenia kosztem przyszłej **Skalowalności**.
+
+---
+
+## 5. Analiza Porównawcza
+| Cecha | Delta5 | Delta4 | MS Teams |
+| :--- | :--- | :--- | :--- |
+| **UX** | Nowoczesny, ergonomiczny | Przestarzały | Korporacyjny |
+| **Komunikacja** | Czat wbudowany | Brak real-time | Zewnętrzny moduł |
+| **Ocenianie** | Auto-testy i statystyki | Skomplikowane tabele | Podstawowe |
+
+---
