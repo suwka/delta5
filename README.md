@@ -58,9 +58,10 @@ Dokument ten stanowi kompleksową specyfikację wymagań dla platformy Delta5. R
         * **Ryzyka/obawy:** pomyłkowe opublikowanie testu/zadania, trudne do znalezienia ustawienia, zbyt techniczne błędy.
 
 ### 2.3. Ograniczenia Projektowe
-* **Techniczne:** Wybór Django, React i PostgreSQL determinuje architekturę API-first.
-* **Organizacyjne:** Realizacja MVP w 3 miesiące przez dwóch studentów.
-* **Budżetowe:** Ograniczenie do bezpłatnych subskrypcji oraz planów studenckich narzędzi i modeli AI.
+* **Organizacyjne:** Realizacja MVP w 3 miesiące przez dwóch studentów bez wcześniejszego doświadczenia w tworzeniu produkcyjnych systemów LMS.
+* **Budżetowe:** Ograniczenie do bezpłatnych subskrypcji oraz planów studenckich narzędzi chmurowych i modeli AI (brak budżetu na dedykowaną infrastrukturę).
+* **Regulacyjne:** Wymóg zgodności z RODO przy przetwarzaniu danych osobowych użytkowników.
+* **Środowiskowe:** Brak dostępu do środowiska testowego identycznego z produkcyjnym – testy przeprowadzane na maszynach deweloperskich.
 
 ### 2.4. Założenia Projektowe
 
