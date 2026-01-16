@@ -318,10 +318,44 @@ Poniższe wymagania odpowiadają pozycjom z tabeli priorytetów (Rozdział 3.1).
 ---
 
 ## 5. Analiza Porównawcza
-| Cecha | Delta5 | Delta4 | MS Teams |
-| :--- | :--- | :--- | :--- |
-| **UX** | Nowoczesny, ergonomiczny | Przestarzały | Korporacyjny |
-| **Komunikacja** | Czat wbudowany | Brak real-time | Zewnętrzny moduł |
-| **Ocenianie** | Auto-testy i statystyki | Skomplikowane tabele | Podstawowe |
+
+### 5.1. Identyfikacja Konkurencji
+* **Delta4** – poprzednia wersja wewnętrznego LMS uczelni.
+* **Microsoft Teams** – platforma edukacyjna używana podczas pandemii.
+* **Google Classroom** – popularny darmowy LMS.
+* **Moodle** – standard w polskich uczelniach.
+
+### 5.2. Tabela Porównawcza
+
+| Cecha | Delta5 | Delta4 | MS Teams | Classroom | Moodle |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| Czat real-time | ✅ | ✅ | ✅ | ❌ | ❌ |
+| Auto-testy | ✅ | ✅ | ⚠️ | ✅ | ✅ |
+| Interfejs | Nowoczesny | Przestarzały | Przeładowany | Minimalny | Skomplikowany |
+| Dostępność | WCAG 2.1 AA | Brak | Certyfikowane | Częściowe | Zależy od motywu |
+| Koszt | Darmowy | N/A | 5$/user | Darmowy | Hosting płatny |
+| Setup | <5 min | ~15 min | ~20 min | <3 min | >1h |
+
+### 5.3. Kluczowe Wnioski
+
+**Co konkurencja robi dobrze:**
+* **Teams:** Pełna komunikacja (czat + wideo) + integracja z Microsoft 365.
+* **Classroom:** Ekstremalnie prosty – setup <3 min.
+* **Moodle:** Najbogatszy zestaw funkcji (1800+ pluginów).
+
+**Słabe punkty konkurencji:**
+* **Teams:** Wymaga licencji ($5/user) + integracji z Active Directory.
+* **Classroom:** Brak czatu real-time – tylko komentarze.
+* **Moodle:** Setup >1h, skomplikowane menu.
+* **Delta4:** Brak accessibility.
+
+**Unikalna wartość Delta5:**
+* Real-time komunikacja (jak Teams) + prostota (jak Classroom) + darmowy self-hosting (jak Moodle) + accessibility (WCAG 2.1 AA).
+* **Segment docelowy:** Małe uczelnie (50-500 studentów), które potrzebują prostszego narzędzia niż Moodle, ale nie stać ich na Teams.
+
+**Świadome braki:**
+* Brak natywnych aplikacji mobilnych.
+* Brak wideokonferencji (wymaga zewnętrznego narzędzia).
+* Brak pluginów/integracji.
 
 ---
