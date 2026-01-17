@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    {% if pokaz_wynik %}
+        <h1>Twój wynik: {{ wynik }}%</h1>
+        <p>Zdobyłeś {{ punkty }} na {{ total }} możliwych punktów.</p>
+        <a href="/test/">Spróbuj ponownie</a>
+
+    {% else %}
+        <form method="post">
+            {% csrf_token %}
+            
+            {% for p in pytania %}
+                <p><strong>{{ p.pytanie }}</strong></p>
+                
+                {% for klucz, tekst in p.opcje %}
+                    <label>
+                        <input type="radio" name="{{ p.id }}" value="{{ klucz }}" required>
+                        {{ tekst }}
+                    </label><br>
+                {% endfor %}
+                <hr>
+            {% endfor %}
+
+            <button type="submit">Wyślij i Sprawdź</button>
+        </form>
+    {% endif %}
+
+</body>
+</html>
