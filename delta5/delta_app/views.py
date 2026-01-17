@@ -53,15 +53,19 @@ def rozwiaz_test(request):
         # Obliczenie procentów
         wynik_procent = int((punkty / total) * 100)
 
+        # Pobieramy imię studenta
+        imie_studenta = request.POST.get('imie', 'Anonim')
+
         # Zapis do bazy (trwałe świadectwo wykonania zadania)
-        WynikTestu.objects.create(student="Anonim", wynik_procent=wynik_procent)
+        WynikTestu.objects.create(student=imie_studenta, wynik_procent=wynik_procent)
 
         # Wyświetlenie wyniku (prosty render bez osobnego pliku HTML)
         return render(request, 'quiz.html', {
             'pokaz_wynik': True,
             'wynik': wynik_procent,
             'punkty': punkty,
-            'total': total
+            'total': total,
+            'imie': imie_studenta
         })
 
     # Scenariusz 2: Wejście na stronę (GET) -> WYŚWIETLAMY PYTANIA

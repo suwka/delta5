@@ -1,31 +1,34 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<body>
-
+  <body>
     {% if pokaz_wynik %}
-        <h1>Twój wynik: {{ wynik }}%</h1>
-        <p>Zdobyłeś {{ punkty }} na {{ total }} możliwych punktów.</p>
-        <a href="/test/">Spróbuj ponownie</a>
+    <h1>Witaj, {{ imie }}!</h1>
+    <h2>Twój wynik: {{ wynik }}%</h2>
+    <p>Zdobyłeś {{ punkty }} na {{ total }} możliwych punktów.</p>
+    <a href="/test/">Spróbuj ponownie</a>
 
     {% else %}
-        <form method="post">
-            {% csrf_token %}
-            
-            {% for p in pytania %}
-                <p><strong>{{ p.pytanie }}</strong></p>
-                
-                {% for klucz, tekst in p.opcje %}
-                    <label>
-                        <input type="radio" name="{{ p.id }}" value="{{ klucz }}" required>
-                        {{ tekst }}
-                    </label><br>
-                {% endfor %}
-                <hr>
-            {% endfor %}
+    <form method="post">
+      {% csrf_token %}
 
-            <button type="submit">Wyślij i Sprawdź</button>
-        </form>
+      <p><strong>Twoje imię:</strong></p>
+      <input type="text" name="imie" placeholder="Wpisz swoje imię" required />
+      <hr />
+
+      {% for p in pytania %}
+      <p><strong>{{ p.pytanie }}</strong></p>
+
+      {% for klucz, tekst in p.opcje %}
+      <label>
+        <input type="radio" name="{{ p.id }}" value="{{ klucz }}" required />
+        {{ tekst }} </label
+      ><br />
+      {% endfor %}
+      <hr />
+      {% endfor %}
+
+      <button type="submit">Wyślij i Sprawdź</button>
+    </form>
     {% endif %}
-
-</body>
+  </body>
 </html>
